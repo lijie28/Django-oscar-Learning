@@ -26,19 +26,21 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
+                     'django.contrib.admin',
+                     'django.contrib.auth',
+                     'django.contrib.contenttypes',
+                     'django.contrib.sessions',
 
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+                     'django.contrib.messages',
+                     'django.contrib.staticfiles',
 
-    'django.contrib.sites',
-    'django.contrib.flatpages',
-    'widget_tweaks',
-    # 'django.reviews',
-] + get_core_apps()
+                     'django.contrib.sites',
+                     'django.contrib.flatpages',
+
+                     'widget_tweaks',
+                     'music.apps.MusicConfig'
+                     # 'django.reviews',
+                 ] + get_core_apps()
 
 #Add SITE_ID 4 oscar
 SITE_ID = 1
