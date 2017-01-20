@@ -1,0 +1,20 @@
+<img src="{{ album.album_logo }}">
+
+<h1>{{ album.album_title }}</h1>
+<h3>{{ artist }}</h3>
+
+{% if error_message %}
+    <p><strong>{{ error_message }}</strong></p>
+{% endif %}
+
+<form action="{% url 'music:favorite' album.id %}" method="post">
+    {% csrf_token %}
+    {% for song in album.song
+</form>
+
+<ul>
+    {% for song in album.song_set.all %}
+        <li>{{ song.song_title }} - {{ song.file_type }}</li>
+    {% endfor %}
+
+</ul>
