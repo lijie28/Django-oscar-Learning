@@ -1,23 +1,16 @@
-{% load staticfiles %}
-<link rel="stylesheet" type="text/css" href="{% static 'music/style.css' %}" />
+{% extends 'music/base.html' %}
 
-<nav class="navbar navbar-default ">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="{% url 'musice:index' %}">Viberr</a>
-        </div>
-    </div>
-</nav>
+{% block body%}
+    {% if all_albums %}
+        <h3> Here are all my albums </h3>
+        <ul>
+            {% for album in all_albums %}
+            <li><a href="{% url 'music:detail' album.id %}">{{ album.album_title }}</a><li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h3>You don't have any albums</h3>
 
+    {% endif %}
 
-{% if all_albums %}
-    <h3> Here are all my albums </h3>
-    <ul>
-        {% for album in all_albums %}
-        <li><a href="{% url 'music:detail' album.id %}">{{ album.album_title }}</a><li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <h3>You don't have any albums</h3>
-
-{% endif %}
+{% endblock %}
