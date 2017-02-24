@@ -1,4 +1,5 @@
 from django.views import generic
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Album
 
 
@@ -12,6 +13,10 @@ class DetailView(generic.DetailView):
     model = Album
     template_name = 'music/index.html'
 
+
+class AlbumCreate(CreateView):
+    model = Album
+    fields = ['artist','album_title','genre','album_logo']
 
 
 
